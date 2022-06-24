@@ -29,6 +29,10 @@ const geoSlice = createSlice({
       state.coords = action.payload.coords;
       state.name = action.payload.name;
       state.country = action.payload.country;
+    },
+
+    emptier: (state) => {
+      state.results = [];
     }
   },
   extraReducers: {
@@ -40,4 +44,4 @@ const geoSlice = createSlice({
 
 export default geoSlice.reducer;
 
-export const { setCurrentGeo } = geoSlice.actions;
+export const { setCurrentGeo, emptier } = geoSlice.actions;
