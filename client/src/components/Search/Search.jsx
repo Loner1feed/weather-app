@@ -1,9 +1,10 @@
-import { Box, TextField } from "@mui/material";
+import { Box, InputBase, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { emptier, searchResults } from "../../redux/slices/geoSlice";
 import { ItemList } from "../ItemList/ItemList";
+import { style } from "./style/style";
 
 export const Search = () => {
   const dispatch = useDispatch();
@@ -40,9 +41,10 @@ export const Search = () => {
 
   return (
     <Box>
-      <TextField
+      <InputBase
+        sx={style.field}
         fullWidth
-        label="Search city"
+        placeholder="Search city"
         value={value}
         onChange={changeHandler}
       />
