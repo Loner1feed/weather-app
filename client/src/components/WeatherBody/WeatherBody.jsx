@@ -31,8 +31,15 @@ export const WeatherBody = () => {
             </Box>
           </Box>
 
-          <Box sx={style.plate}></Box>
-          <Box sx={style.plate}></Box>
+          <Box sx={style.plateExtended}>
+            <Box component="span">
+              Feels like: {Math.round(data.main.feels_like)}°
+            </Box>
+            <Box component="span">Humidity: {data.main.humidity}%</Box>
+            <Box component="span">Wind: {data.wind.speed}m/s</Box>
+            <Box component="span">Pressure: {data.main.pressure}hPa</Box>
+          </Box>
+          <Box sx={style.plateExtended}></Box>
         </>
       )}
     </Box>
