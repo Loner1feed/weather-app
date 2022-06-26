@@ -1,4 +1,4 @@
-import { Box, InputBase, TextField } from "@mui/material";
+import { Box, InputBase } from "@mui/material";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -40,7 +40,7 @@ export const Search = () => {
   }, [value]);
 
   return (
-    <Box>
+    <Box sx={style.wrap}>
       <InputBase
         sx={style.field}
         fullWidth

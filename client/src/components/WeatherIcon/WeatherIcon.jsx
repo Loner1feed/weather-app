@@ -1,4 +1,6 @@
+import { Box } from "@mui/material";
 import React from "react";
+import { style } from "./style/style";
 
 //icons
 // import clearDay from "../../assets/icons/clear-day.svg";
@@ -20,13 +22,13 @@ import React from "react";
 
 export const WeatherIcon = ({ icon, size = "large" }) => {
   return (
-    <div>
+    <Box sx={style.wrap}>
       <img
         src={`http://openweathermap.org/img/wn/${icon}@${
           size === "large" ? 4 : 2
         }x.png`}
         alt=""
       />
-    </div>
+    </Box>
   );
 };

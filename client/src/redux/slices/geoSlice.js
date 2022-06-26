@@ -3,7 +3,10 @@ import { geoAPI } from "../../api/geoAPI";
 
 
 const init = {
-  coords: null,
+  coords: {
+    lon: 30.7393,
+    lat: 46.4873,
+  },
   results: [],
   error: null,
 }

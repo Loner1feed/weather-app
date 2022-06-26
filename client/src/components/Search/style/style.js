@@ -4,5 +4,9 @@ export const style = {
     color: '#fff',
     padding: '5px 10px',
     borderRadius: '5px'
+  },
+
+  wrap: {
+    position: 'relative',
   }
 }

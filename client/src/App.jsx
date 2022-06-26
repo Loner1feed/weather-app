@@ -1,12 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getWeather } from "./redux/slices/weatherSlice";
 import { Box } from "@mui/material";
 import { Search } from "./components/Search/Search";
 import { WeatherBody } from "./components/WeatherBody/WeatherBody";
-import bg from "./assets/bg/hollowed-boxes.svg";
-import { bgAPI } from "./api/bgAPI";
-import axios from "axios";
 import { RandomBg } from "./components/RandomBg/RandomBg";
 // import { NetBg } from "./assets/bg/NetBg";
 
@@ -19,7 +16,7 @@ function App() {
       maxWidth: "700px",
       margin: "0 auto",
       width: "100%",
-      padding: "100px 20px",
+      padding: "20px",
       paddingTop: "20px",
       position: "relative",
       // zIndex: 10,
@@ -39,15 +36,6 @@ function App() {
       paddingTop: "100px",
     },
   };
-
-  // useEffect(() => {
-  //   func();
-  // }, []);
-
-  // const func = async () => {
-  //   const res = await axios.get("https://bing.ioliu.cn/v1/rand?w=1280&h=720");
-  //   console.log(res);
-  // };
 
   useEffect(() => {
     if (coords) {
