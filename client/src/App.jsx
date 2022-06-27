@@ -5,11 +5,15 @@ import { Box } from "@mui/material";
 import { Search } from "./components/Search/Search";
 import { WeatherBody } from "./components/WeatherBody/WeatherBody";
 import { RandomBg } from "./components/RandomBg/RandomBg";
-// import { NetBg } from "./assets/bg/NetBg";
+import { overrideFavorite } from "./redux/slices/favoriteSlice";
+
+// *** NOTE:
+// *** App makes an extra qpi call when you select an item from favorites. Need to be fixed
 
 function App() {
   const dispatch = useDispatch();
   const { coords } = useSelector((state) => state.geo);
+  console.log(coords);
 
   const appStyles = {
     wrapper: {
@@ -36,12 +40,21 @@ function App() {
       paddingTop: "100px",
     },
   };
-
+  console.log("render");
   useEffect(() => {
     if (coords) {
       dispatch(getWeather());
     }
   }, [coords]);
+
+  useEffect(() => {
+    const ls = window.localStorage;
+    const items = JSON.parse(ls.getItem("favorites"));
+    console.log(items);
+    if (items) {
+      dispatch(overrideFavorite(items));
+    }
+  }, []);
 
   return (
     <Box sx={appStyles.app}>

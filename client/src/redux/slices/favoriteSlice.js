@@ -1,13 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-const init = [
-  {
-    id: null,
-    name: null,
-    coord: null,
-  }
-]
+// {
+//   id: null,
+//   name: null,
+//   coord: null,
+// }
+const init = []
 
 const favoriteSlice = createSlice({
   name: 'favorite',
@@ -15,13 +13,20 @@ const favoriteSlice = createSlice({
   reducers: {
     addFavorite: (state, action) => {
       state.push(action.payload);
+
+    },
+
+    overrideFavorite: (state, action) => {
+      state = action.payload;
+      return state;
     },
 
     deleteFavorite: (state, action) => {
-      state.filter(item => item.id !== action.payload)
+      state = state.filter(item => item.id !== action.payload)
+      return state
     }
   }
 })
 
 export default favoriteSlice.reducer;
-export const { addFavorite, deleteFavorite } = favoriteSlice.actions;
+export const { addFavorite, deleteFavorite, overrideFavorite } = favoriteSlice.actions;

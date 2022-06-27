@@ -2,17 +2,18 @@ import { Box } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { FavList } from "../FavList/FavList";
 import { WeatherIcon } from "../WeatherIcon/WeatherIcon";
 import { style } from "./style/style";
 
 export const WeatherBody = () => {
   const { data } = useSelector((state) => state.weather);
 
-  useEffect(() => {
-    if (data) {
-      console.log(data);
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (data) {
+  //     console.log(data);
+  //   }
+  // }, [data]);
 
   return (
     <Box sx={style.wrapper}>
@@ -39,7 +40,9 @@ export const WeatherBody = () => {
             <Box component="span">Wind: {data.wind.speed}m/s</Box>
             <Box component="span">Pressure: {data.main.pressure}hPa</Box>
           </Box>
-          <Box sx={style.plateExtended}></Box>
+          <Box sx={style.plateExtended}>
+            <FavList />
+          </Box>
         </>
       )}
     </Box>

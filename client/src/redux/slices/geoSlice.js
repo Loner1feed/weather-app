@@ -7,6 +7,8 @@ const init = {
     lon: 30.7393,
     lat: 46.4873,
   },
+  name: null,
+  country: null,
   results: [],
   error: null,
 }
