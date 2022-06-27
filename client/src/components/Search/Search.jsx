@@ -1,16 +1,19 @@
 import { Box, InputBase } from "@mui/material";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { emptier, searchResults } from "../../redux/slices/geoSlice";
+import { FavStar } from "../FavStar/FavStar";
 import { ItemList } from "../ItemList/ItemList";
 import { style } from "./style/style";
 
 export const Search = () => {
   const dispatch = useDispatch();
   const { results } = useSelector((state) => state.geo);
+  let name = useSelector((state) => state.weather?.data?.name);
   const [value, setValue] = useState("");
   const [limit, setLimit] = useState(5);
+  const inputRef = useRef();
 
   const geoCall = async (value, limit) => {
     dispatch(searchResults({ phrase: value, limit: limit }));
@@ -21,7 +24,12 @@ export const Search = () => {
   };
 
   useEffect(() => {
-    // dispatch(clearFull());
+    if (name) {
+      setValue(name);
+    }
+  }, [name]);
+
+  useEffect(() => {
     let timeout;
     if (value) {
       if (limit === 5) {
@@ -47,8 +55,10 @@ export const Search = () => {
         placeholder="Search city"
         value={value}
         onChange={changeHandler}
+        inputRef={inputRef}
+        endAdornment={<FavStar />}
       />
-      <ItemList />
+      {document.activeElement === inputRef.current && <ItemList />}
     </Box>
   );
 };

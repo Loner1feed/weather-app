@@ -1,5 +1,5 @@
 {
-  "homepage": "https://nameaccount.github.io/namerepository",
+  "homepage": "https://loner1feed.github.io/weather-app/",
   "name": "client",
   "version": "0.1.0",
   "private": true,
@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
     "react-scripts": "5.0.1",
+    "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

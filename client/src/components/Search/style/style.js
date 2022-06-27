@@ -3,7 +3,8 @@ export const style = {
     background: 'rgba(38,44,66,0.9)',
     color: '#fff',
     padding: '5px 10px',
-    borderRadius: '5px'
+    borderRadius: '5px',
+    display: 'flex',
   },
 
   wrap: {
