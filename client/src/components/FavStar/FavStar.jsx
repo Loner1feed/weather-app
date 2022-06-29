@@ -9,7 +9,7 @@ import { style } from "./style/style";
 import { useEffect } from "react";
 
 export const FavStar = () => {
-  const { data } = useSelector((state) => state.weather);
+  const { data, status } = useSelector((state) => state.weather);
   const favArray = useSelector((state) => state.favorite);
 
   const dispatch = useDispatch();
@@ -41,7 +41,14 @@ export const FavStar = () => {
   };
 
   return (
-    <Box sx={style.star} onClick={clickHandler}>
+    <Box
+      sx={
+        status === "rejected"
+          ? { ...style.star, ...style.starDisabled }
+          : style.star
+      }
+      onClick={clickHandler}
+    >
       {!rated ? <img src={starReg} alt="" /> : <img src={starSolid} alt="" />}
     </Box>
   );

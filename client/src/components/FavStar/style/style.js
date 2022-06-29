@@ -9,5 +9,10 @@ export const style = {
     img: {
       width: '100%',
     },
+  },
+
+  starDisabled: {
+    opacity: '0.3',
+    cursor: 'no-drop',
   }
 }

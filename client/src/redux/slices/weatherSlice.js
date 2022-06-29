@@ -4,6 +4,8 @@ import { weatherAPI } from '../../api/weatherAPI';
 
 const init = {
   data: null,
+  error: null,
+  status: null,
 }
 
 export const getWeather = createAsyncThunk(
@@ -26,8 +28,16 @@ const weatherSlice = createSlice({
   initialState: init,
   reducers: {},
   extraReducers: {
+    [getWeather.pending]: (state) => {
+      state.status = 'pending';
+    },
     [getWeather.fulfilled]: (state, action) => {
       state.data = action.payload;
+      state.status = 'fulfilled'
+    },
+    [getWeather.rejected]: (state, action) => {
+      state.error = action.payload;
+      state.status = 'rejected';
     }
   }
 })

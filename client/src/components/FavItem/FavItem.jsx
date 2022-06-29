@@ -18,7 +18,9 @@ export const FavItem = ({ data }) => {
 
   return (
     <Box sx={style.item} onClick={favSelect}>
-      <h2>{data.name}</h2>
+      <Box component="span">
+        {data.name}, {data.country}
+      </Box>
     </Box>
   );
 };
